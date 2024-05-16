@@ -106,3 +106,4 @@ form.append(frag);
 
 input.value = item.email ?? '';
 textarea.value = item.message ?? '';
+console.log('e');

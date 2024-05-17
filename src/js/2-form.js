@@ -101,9 +101,8 @@ button.style.color = '#fff';
 button.style.backgroundColor = '#4e75ff';
 button.style.letterSpacing = '0.04em';
 button.style.lineHeight = '1.5';
-
+// button.style.cursor = 'pointer';
 form.append(frag);
 
 input.value = item.email ?? '';
 textarea.value = item.message ?? '';
-console.log('e');

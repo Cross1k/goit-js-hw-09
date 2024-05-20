@@ -45,7 +45,7 @@ img {
 }
 
 .gallery-image {
-  width: 320px;
+  width: 360px;
   height: 200px;
   transition: transform 400ms ease;
 }

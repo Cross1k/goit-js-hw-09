@@ -52,11 +52,9 @@ form.addEventListener('submit', event => {
   console.log(formData);
   localStorage.removeItem(localStorageKey);
   form.reset();
-  formData.email = '';
-  formData.message = '';
 });
 
 form.append(frag);
 
-input.value = formData.email;
-textarea.value = formData.message;
+input.value = formData.email ?? '';
+textarea.value = formData.message ?? '';

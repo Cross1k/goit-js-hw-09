@@ -34,27 +34,32 @@ formParams.forEach(param => {
   label.append(param);
 });
 frag.append(button);
+form.append(frag);
+
+let getData = localStorage.getItem(localStorageKey);
 
 form.addEventListener('input', event => {
-  if (event.target.nodeName === 'INPUT') formData.email = event.target.value;
+  if (event.target.nodeName === 'INPUT') {
+    formData.email = event.target.value;
+  }
   if (event.target.nodeName === 'TEXTAREA')
     formData.message = event.target.value;
   localStorage.setItem(localStorageKey, JSON.stringify(formData));
 });
 
-formData = JSON.parse(localStorage.getItem(localStorageKey));
+if (getData) {
+  formData.email = JSON.parse(getData).email;
+  formData.message = JSON.parse(getData).message;
+  input.value = formData.email;
+  textarea.value = formData.message;
+}
 
 form.addEventListener('submit', event => {
   event.preventDefault();
-  if (!input.value || !textarea.value) {
-    return alert('Fill please all fields');
-  }
+  if (!input.value || !textarea.value) return alert('Fill please all fields');
   console.log(formData);
   localStorage.removeItem(localStorageKey);
   form.reset();
+  formData.email = '';
+  formData.message = '';
 });
-
-form.append(frag);
-
-input.value = formData.email ?? '';
-textarea.value = formData.message ?? '';
